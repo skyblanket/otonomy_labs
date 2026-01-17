@@ -5,7 +5,7 @@ import { useSoundContext } from './SoundContext';
 import styles from './CustomCursor.module.css';
 
 export default function CustomCursor() {
-  const { soundEnabled, toggleSound, playClick } = useSoundContext();
+  const { soundEnabled, toggleSound } = useSoundContext();
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -54,14 +54,25 @@ export default function CustomCursor() {
     };
   }, [visible, isMobile]);
 
+  // Enable sound on first click (desktop)
+  useEffect(() => {
+    if (isMobile || soundEnabled) return;
+
+    const handleClick = () => {
+      toggleSound();
+    };
+
+    document.addEventListener('click', handleClick, { once: true });
+    return () => document.removeEventListener('click', handleClick);
+  }, [isMobile, soundEnabled, toggleSound]);
+
   const handleToggle = () => {
     toggleSound();
-    playClick();
   };
 
   return (
     <>
-      {/* Cursor label for desktop */}
+      {/* Cursor tooltip for desktop - disappears after sound enabled */}
       {!isMobile && visible && !soundEnabled && (
         <div
           className={styles.cursorLabel}
@@ -74,30 +85,23 @@ export default function CustomCursor() {
         </div>
       )}
 
-      {/* Fixed sound toggle button */}
-      <button
-        className={`${styles.soundToggle} ${soundEnabled ? styles.enabled : ''}`}
-        onClick={handleToggle}
-        aria-label={soundEnabled ? 'Disable sound' : 'Enable sound'}
-      >
-        <span className={styles.soundIcon}>
-          {soundEnabled ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
-            </svg>
-          ) : (
+      {/* Mobile only: sound toggle button - disappears after enabled */}
+      {isMobile && !soundEnabled && (
+        <button
+          className={styles.soundToggle}
+          onClick={handleToggle}
+          aria-label="Enable sound"
+        >
+          <span className={styles.soundIcon}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M11 5L6 9H2v6h4l5 4V5z"/>
               <line x1="23" y1="9" x2="17" y2="15"/>
               <line x1="17" y1="9" x2="23" y2="15"/>
             </svg>
-          )}
-        </span>
-        <span className={styles.soundLabel}>
-          {soundEnabled ? 'ON' : 'OFF'}
-        </span>
-      </button>
+          </span>
+          <span className={styles.soundLabel}>OFF</span>
+        </button>
+      )}
     </>
   );
 }

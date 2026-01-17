@@ -89,7 +89,6 @@ export function SoundProvider({ children }: { children: ReactNode }) {
 
   const toggleSound = useCallback(() => {
     if (!soundEnabled) {
-      // First enable - need to init audio context on user gesture
       const ctx = getAudioContext();
       if (ctx.state === 'suspended') {
         ctx.resume();
@@ -114,25 +113,12 @@ export function SoundProvider({ children }: { children: ReactNode }) {
       }
     };
 
-    // Throttled scroll handler
-    let lastScrollTime = 0;
-    const scrollThrottle = 50;
-    const handleScroll = () => {
-      const now = Date.now();
-      if (now - lastScrollTime >= scrollThrottle) {
-        playScroll();
-        lastScrollTime = now;
-      }
-    };
-
     document.addEventListener('click', handleClick);
     document.addEventListener('mouseenter', handleMouseEnter, true);
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('mouseenter', handleMouseEnter, true);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, [playClick, playHover, playScroll]);
 

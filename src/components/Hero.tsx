@@ -36,15 +36,15 @@ export default function Hero() {
 
       <div className={styles.statsBar}>
         <div className={styles.stat}>
-          <span className={styles.statValue}>100K+</span>
+          <span className={styles.statValue}>30K+</span>
           <span className={styles.statLabel}>Hours Captured</span>
         </div>
         <div className={styles.stat}>
-          <span className={styles.statValue}>10M+</span>
+          <span className={styles.statValue}>3M+</span>
           <span className={styles.statLabel}>Trajectories</span>
         </div>
         <div className={styles.stat}>
-          <span className={styles.statValue}>&lt;3mm</span>
+          <span className={styles.statValue}>10-15mm</span>
           <span className={styles.statLabel}>Pose Accuracy</span>
         </div>
         <div className={styles.stat}>

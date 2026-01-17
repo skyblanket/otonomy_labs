@@ -17,7 +17,7 @@ export default function Footer() {
   const copyEmail = useCallback(async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    const emailToCopy = 'hello@otonomylabs.com';
+    const emailToCopy = 'akash.otonomy@gmail.com';
 
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {

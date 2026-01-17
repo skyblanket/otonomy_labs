@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: 'How accurate are your trajectory extractions?',
-    answer: 'Our pipeline achieves sub-3mm pose accuracy using state-of-the-art SAM 3D body estimation combined with Depth Pro monocular depth and multi-view triangulation. Every trajectory is validated against biomechanical constraints and undergoes physics-based quality validation with human review.',
+    answer: 'Our pipeline achieves 10-15mm pose accuracy using state-of-the-art SAM 3D body estimation combined with Depth Pro monocular depth and multi-view triangulation. Every trajectory is validated against biomechanical constraints and undergoes physics-based quality validation with human review.',
   },
   {
     question: 'Why is your approach better than teleoperation or simulation?',
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: 'How much data do you have available?',
-    answer: 'Our infrastructure has captured over 100,000 hours of manipulation data, resulting in more than 10 million trajectories. Our pipeline runs 24/7, continuously collecting and processing new data from factory environments. Petabyte-scale storage ensures we can scale to meet any training requirements.',
+    answer: 'Our infrastructure has captured over 30,000 hours of manipulation data, resulting in more than 3 million trajectories. Our pipeline runs 24/7, continuously collecting and processing new data from factory environments. Scalable storage ensures we can grow to meet any training requirements.',
   },
   {
     question: 'Can I get custom data collection for specific tasks?',
@@ -44,7 +44,7 @@ export default function FAQ() {
           <h2>Frequently Asked Questions</h2>
           <p>
             If you can&apos;t find an answer here, reach out to us at{' '}
-            <a href="mailto:hello@otonomylabs.com">hello@otonomylabs.com</a>
+            <a href="mailto:akash.otonomy@gmail.com">akash.otonomy@gmail.com</a>
           </p>
         </div>
 
