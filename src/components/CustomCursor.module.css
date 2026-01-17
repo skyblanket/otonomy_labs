@@ -1,0 +1,103 @@
+.cursorLabel {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+  transform: translate(20px, 10px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(15px, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(20px, 10px);
+  }
+}
+
+.soundToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.soundToggle:hover {
+  background: rgba(30, 30, 30, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.soundToggle.enabled {
+  border-color: rgba(0, 255, 0, 0.3);
+}
+
+.soundToggle.enabled:hover {
+  border-color: rgba(0, 255, 0, 0.5);
+}
+
+.soundIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+}
+
+.soundToggle.enabled .soundIcon {
+  color: #00ff00;
+}
+
+.soundLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease;
+}
+
+.soundToggle.enabled .soundLabel {
+  color: #00ff00;
+}
+
+@media (max-width: 768px) {
+  .soundToggle {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .soundLabel {
+    font-size: 0.55rem;
+  }
+
+  .soundIcon svg {
+    width: 14px;
+    height: 14px;
+  }
+}

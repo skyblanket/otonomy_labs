@@ -1,0 +1,89 @@
+.blueprintSection {
+  background: var(--black);
+  padding: 80px;
+}
+
+.blueprintHeader {
+  margin-bottom: 60px;
+}
+
+.blueprintHeader h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: calc(-0.02em - 4px);
+  text-transform: uppercase;
+}
+
+.blueprintHeader p {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 700px;
+}
+
+.blueprintGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.blueprintItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.blueprintIcon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.blueprintIcon svg {
+  width: 24px;
+  height: 24px;
+  stroke: rgba(255, 255, 255, 0.6);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.blueprintItemContent h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.blueprintItemContent p {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .blueprintGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .blueprintSection {
+    padding: 80px 20px;
+  }
+
+  .blueprintGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

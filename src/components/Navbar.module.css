@@ -1,0 +1,131 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.2s ease, backdrop-filter 0.2s ease, transform 0.3s ease;
+  min-height: auto;
+  max-height: 80px;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.nav.navHidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.logo img {
+  height: 64px;
+  width: auto;
+}
+
+.nav.scrolled .logo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav.scrolled {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.85);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.navLinks a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: var(--off-white);
+}
+
+.nav.scrolled .navLinks a {
+  color: var(--white);
+}
+
+.navLogin {
+  color: var(--black);
+  background: var(--white);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.navLogin:hover {
+  background: var(--off-white);
+  transform: translateY(-1px);
+}
+
+.nav.scrolled .navLogin {
+  background: var(--white);
+  color: var(--black);
+}
+
+.nav.scrolled .navLogin:hover {
+  background: var(--off-white);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .navRight {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navLinks {
+    gap: 25px;
+  }
+
+  .navLinks a {
+    font-size: 0.65rem;
+  }
+
+  .navLogin {
+    padding: 12px 20px;
+    font-size: 0.75rem;
+  }
+}

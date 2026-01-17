@@ -1,0 +1,140 @@
+.faqSection {
+  background: var(--black);
+  padding: 80px;
+  min-height: auto;
+}
+
+.faqContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqHeader {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.faqHeader h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: calc(-0.02em - 2px);
+}
+
+.faqHeader p {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.faqHeader a {
+  color: var(--red);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.faqHeader a:hover {
+  color: var(--red-dark);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faqItem {
+  background: var(--black);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.faqQuestion:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.faqQuestion h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  margin: 0;
+  padding-right: 20px;
+}
+
+.faqToggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faqItem.open .faqToggle {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faqItem.open .faqAnswer {
+  max-height: 500px;
+}
+
+.faqAnswerInner {
+  padding: 0 28px 24px;
+}
+
+.faqAnswerInner p {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .faqSection {
+    padding: 80px 20px;
+  }
+
+  .faqQuestion {
+    padding: 20px;
+  }
+
+  .faqQuestion h3 {
+    font-size: 0.9rem;
+  }
+
+  .faqAnswerInner {
+    padding: 0 20px 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .faqSection {
+    padding: 60px 40px;
+  }
+
+  .faqQuestion h3 {
+    font-size: 0.9rem;
+  }
+}

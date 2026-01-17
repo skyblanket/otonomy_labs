@@ -1,0 +1,289 @@
+.headerSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px;
+  padding-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.splineLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #141514;
+}
+
+.headerSection > * {
+  position: relative;
+  z-index: 10;
+}
+
+.heroVisual {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 55%;
+  max-width: 800px;
+  height: 80%;
+  overflow: hidden;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.asciiOverlay {
+  position: absolute;
+  bottom: 20px;
+  left: -60px;
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.heroContentBox {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  padding: 30px 40px;
+  position: absolute;
+  bottom: 50px;
+  left: 80px;
+  z-index: 10;
+  max-width: 850px;
+  border-radius: 0 4px 4px 4px;
+}
+
+.heroContentBox::after {
+  content: 'FORWARD DEPLOYED RESEARCH UNIT';
+  position: absolute;
+  top: -33px;
+  left: -1px;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
+  padding: 9px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.15em;
+  border-radius: 4px 4px 0 0;
+}
+
+.heroContentBox::before {
+  content: '';
+  position: absolute;
+  top: -33px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.heroContentBox > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #232323;
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 12px;
+  width: fit-content;
+  border-radius: 2px 0 1px 2px;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+
+.heroBadge::before {
+  content: '◉';
+  color: #00FF00;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.heroTitle {
+  font-family: 'Doto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: var(--red);
+  position: relative;
+  display: inline-block;
+}
+
+.heroSubtitle {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  font-weight: 400;
+  color: var(--gray-light);
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  letter-spacing: -0.01em;
+}
+
+.heroCta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.statsBar {
+  display: none;
+}
+
+.stat {
+  text-align: left;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--red);
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: var(--gray-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    justify-content: center;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
+  .heroContentBox {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: none;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  .heroContentBox::after {
+    font-size: 0.5rem;
+    padding: 6px 12px;
+    top: -28px;
+  }
+
+  .heroContentBox::before {
+    top: -28px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 20px;
+    line-height: 0.9;
+  }
+
+  .heroSubtitle {
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+  }
+
+  .heroBadge {
+    font-size: 0.55rem;
+    padding: 6px 10px;
+  }
+
+  .heroCta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .heroCta :global(.btn) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .headerSection {
+    height: 80vh;
+    min-height: 600px;
+    padding: 60px 40px 40px;
+  }
+
+  .heroVisual {
+    width: 45%;
+    height: 60%;
+  }
+
+  .asciiOverlay {
+    display: none;
+  }
+
+  .heroContentBox {
+    left: 40px;
+    right: auto;
+    bottom: 40px;
+    max-width: 400px;
+    padding: 25px 30px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+
+  .heroCta {
+    gap: 10px;
+  }
+
+  .heroCta :global(.btn) {
+    padding: 10px 18px;
+    font-size: 0.65rem;
+  }
+}

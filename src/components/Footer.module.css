@@ -1,0 +1,258 @@
+.footer {
+  background: #F90F06;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: url('/hands website.png') no-repeat right center;
+  background-size: contain;
+  background-position: right calc(50% - 100px);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.footerCtaSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.footerCtaContent {
+  max-width: 600px;
+}
+
+.footerCtaTitle {
+  font-family: 'Doto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 0.9;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.footerCtaText {
+  font-family: 'Red Hat Mono', monospace;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: var(--black);
+  max-width: 500px;
+  margin: 0 0 24px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.footerCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.footerCtaBtn:hover {
+  background: var(--dark);
+  transform: translateY(-1px);
+}
+
+.copyIcon {
+  opacity: 0;
+  width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: invert(1);
+}
+
+.footerCtaBtn:hover .copyIcon {
+  opacity: 1;
+  margin-left: 8px;
+  width: 16px;
+}
+
+.copyToast {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.8) translateY(10px);
+  background: var(--dark);
+  border: 1px solid var(--red);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10000;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.copyToast.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1) translateY(0);
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerColTitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--black);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.footerEmailInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 10px;
+  margin-top: 8px;
+}
+
+.footerEmailInput input {
+  background: transparent;
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--black);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  outline: none;
+  flex: 1;
+}
+
+.footerEmailInput input::placeholder {
+  color: var(--black);
+  opacity: 0.7;
+}
+
+.footerEmailInput button {
+  background: transparent;
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--black);
+  cursor: pointer;
+  padding: 0;
+}
+
+.footerLink {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: var(--white);
+}
+
+.footerCopyrightText {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--black);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .footerTop {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 20px;
+  }
+
+  .footer::before {
+    display: none;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footerCtaSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer {
+    padding: 60px 40px 30px;
+  }
+
+  .footer::before {
+    width: 40%;
+    opacity: 0.7;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+  }
+
+  .footerCtaTitle {
+    font-size: 1.5rem;
+  }
+}
