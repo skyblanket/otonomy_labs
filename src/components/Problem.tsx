@@ -51,6 +51,15 @@ export default function Problem() {
 
       <div className={styles.problemGrid}>
         <div className={styles.problemVisual}>
+          <video
+            className={styles.problemVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/hands-demo.mp4" type="video/mp4" />
+          </video>
           <div className={styles.problemStatusBadge}>
             <span>Real factory data • Sub-mm accuracy</span>
           </div>
