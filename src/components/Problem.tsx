@@ -61,7 +61,7 @@ export default function Problem() {
             <source src="/hands-demo.mp4" type="video/mp4" />
           </video>
           <div className={styles.problemStatusBadge}>
-            <span>Real factory data • Sub-mm accuracy</span>
+            <span>Real factory data • 10-15mm accuracy</span>
           </div>
         </div>
 
